@@ -1,0 +1,70 @@
+[[plugins]]
+repo = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+if = 'has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("nvim")'
+on_i = 1
+hook_post_source = '''
+let g:deoplete#omni_patterns = {}
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+on_i = 1
+on_ft = 'ruby'
+hook_post_source = '''
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:deoplete#omni_patterns.ruby =  ['[^. *\t]\.\w*', '\h\w*::']
+let g:deoplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\ }
+'''
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+hook_post_source = '''
+""
+"" vimtex
+""
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_latexmk_background = 1
+"let g:vimtex_latexmk_options = '-pdf'
+let g:vimtex_latexmk_options = '-pdfdvi'
+"let g:vimtex_latexmk_options = '-pdfps'
+"let g:vimtex_view_general_viewer = 'xdg-open'
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+"let g:vimtex_view_general_options_latexmk = '--unique'
+"let g:vimtex_view_general_viewer = 'qpdfview'
+"let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
+"let g:vimtex_view_general_options_latexmk = '--unique'
+'''
