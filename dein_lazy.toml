@@ -3,6 +3,13 @@ repo = 'Shougo/neosnippet'
 depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
+hook_post_source = '''
+let g:neosnippet#snippets_directory='~/.config/nvim/snip'
+
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
+'''
 
 [[plugins]]
 repo = 'Shougo/neocomplete'
@@ -13,6 +20,9 @@ on_i = 1
 repo = 'Shougo/deoplete.nvim'
 if = 'has("nvim")'
 on_i = 1
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+'''
 hook_post_source = '''
 let g:deoplete#omni_patterns = {}
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -47,6 +57,7 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = 'markdown'
+depends = ['open-browser.vim']
 
 [[plugins]]
 repo = 'lervag/vimtex'
@@ -67,4 +78,11 @@ let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 "let g:vimtex_view_general_viewer = 'qpdfview'
 "let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
 "let g:vimtex_view_general_options_latexmk = '--unique'
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+hook_source = '''
+au BufRead,BufNewFile *.toml set filetype=toml
 '''
