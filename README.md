@@ -1,2 +1,3 @@
-# taka_init.vim
-My NeoVim configuration file and plugin management repositories
+# neovimfiles
+
+NeoVim の設定、及び dein.vim によるプラグイン管理ファイルのためのリポジトリです。
