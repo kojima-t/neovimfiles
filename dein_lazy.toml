@@ -67,3 +67,21 @@ hook_source = '''
 au BufRead,BufNewFile *.toml set filetype=toml
 '''
 
+[[plugins]]
+repo = 'kana/vim-filetype-haskell'
+on_ft = 'haskell'
+on_i = 1
+
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+on_ft = 'haskell'
+
+[[plugins]]
+repo = 'eagletmt/neco-ghc'
+on_ft = 'haskell'
+on_i = 1
+hook_source = '''
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+'''
