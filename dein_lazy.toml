@@ -44,6 +44,23 @@ on_i = 1
 on_ft = 'python'
 
 [[plugins]]
+repo = 'Rip-Rip/clang_complete'
+on_i = 1
+on_ft = 'cpp'
+hook_source = '''
+ " path to directory where library can be found
+ let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+ " or path directly to the library file
+ let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang.so'
+ let g:clang_complete_auto = 0
+ let g:clang_auto_select = 0
+ let g:clang_omnicppcomplete_compliance = 0
+ let g:clang_make_default_keymappings = 0
+"let g:clang_use_library = 1
+'''
+
+
+[[plugins]]
 repo = 'osyo-manga/vim-monster'
 on_i = 1
 on_ft = 'ruby'
@@ -64,13 +81,32 @@ repo = 'kannokanno/previm'
 on_ft = 'markdown'
 depends = ['open-browser.vim']
 
-
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 hook_source = '''
 au BufRead,BufNewFile *.toml set filetype=toml
 '''
+
+[[plugins]]
+repo = 'lepture/vim-jinja'
+on_ft = 'jinja'
+hook_source = '''
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+'''
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = 'javascript'
+on_i = 1
 
 [[plugins]]
 repo = 'eagletmt/ghcmod-vim'
