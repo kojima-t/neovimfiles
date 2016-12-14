@@ -85,7 +85,7 @@ autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " python {{{
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
-autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal runtimepath+=/home/hikaru515/.config/nvim/ftplugin
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
 autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 " }}}
@@ -93,5 +93,4 @@ autocmd CompleteDone * pclose " To close preview window of deoplete automagicall
 set splitright
 syntax on
 set t_Co=256
-colorscheme molokai
-set background=dark
+colorscheme iceberg

@@ -44,6 +44,12 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'tomasr/molokai'
 
 [[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
