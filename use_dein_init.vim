@@ -15,10 +15,6 @@ set wrap
 set guifont=Osaka－等幅\ 12
 set linespace=0
 
-" set variables
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/home/hikaru515/.pyenv/versions/anaconda3-4.1.1/bin/python'
-
 "dein settings {{{
 if &compatible
     set nocompatible
@@ -83,8 +79,8 @@ autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " }}}
 
 " python {{{
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/home/hikaru/.pyenv/versions/anaconda3-4.2.0/bin/python'
 autocmd FileType python setlocal runtimepath+=/home/hikaru515/.config/nvim/ftplugin
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
 autocmd CompleteDone * pclose " To close preview window of deoplete automagically
