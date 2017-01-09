@@ -86,6 +86,10 @@ autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
 autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 " }}}
 
+" golang {{{
+autocmd FileType go setlocal noexpandtab
+" }}}
+
 set splitright
 syntax on
 set t_Co=256

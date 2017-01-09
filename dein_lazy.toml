@@ -44,6 +44,25 @@ on_i = 1
 on_ft = 'python'
 
 [[plugins]]
+repo = 'zchee/deoplete-go'
+hook_post_update = '''
+    if executable('make')
+        let cmd = 'make'
+    endif
+    let g:dein#plugin.build = cmd
+'''
+hook_post_source = '''
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+'''
+on_i = 1
+on_ft = 'go'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
 repo = 'Rip-Rip/clang_complete'
 on_i = 1
 on_ft = 'cpp'
@@ -141,3 +160,8 @@ let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
 let g:haskell_indent_guard = 2
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = 'html'
+on_i = 1
