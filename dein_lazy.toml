@@ -63,32 +63,24 @@ repo = 'fatih/vim-go'
 on_ft = 'go'
 
 [[plugins]]
-repo = 'Rip-Rip/clang_complete'
+repo = 'justmao945/vim-clang'
+on_ft = ['cpp', 'c']
 on_i = 1
-on_ft = 'cpp'
-hook_source = '''
- " path to directory where library can be found
- "let g:clang_library_path='/usr/lib/clang'
- " or path directly to the library file
- let g:clang_library_path='/usr/lib/libclang.so.3.9'
- let g:clang_complete_auto = 0
- let g:clang_auto_select = 0
- let g:clang_omnicppcomplete_compliance = 0
- let g:clang_make_default_keymappings = 0
- let g:clang_use_library = 1
+hook_post_source = '''
+let g:clang_auto = 0
+let g:clang_c_options = '-std=c11'
+let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 '''
 
-
 [[plugins]]
-repo = 'osyo-manga/vim-monster'
+repo = 'Shougo/neoinclude.vim'
 on_i = 1
-on_ft = 'ruby'
+on_ft = ['c', 'cpp', 'cmake']
+depends = ['deoplete.nvim']
 hook_post_source = '''
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
-let g:deoplete#omni_patterns.ruby =  ['[^. *\t]\.\w*', '\h\w*::']
-let g:deoplete#sources#omni#input_patterns = {
-\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-\ }
+    let g:neoinclude#paths = {
+        \ 'cpp': '/usr/include/c++/6.2.1', 
+        \ }
 '''
 
 [[plugins]]
