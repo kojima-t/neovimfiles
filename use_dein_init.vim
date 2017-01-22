@@ -90,6 +90,9 @@ autocmd CompleteDone * pclose " To close preview window of deoplete automagicall
 autocmd FileType go setlocal noexpandtab
 " }}}
 
+" make file
+autocmd FileType make setlocal noexpandtab
+
 set splitright
 syntax on
 set t_Co=256
