@@ -12,11 +12,6 @@ endif
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplete'
-if = 'has("lua")'
-on_i = 1
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = 'has("nvim")'
 on_i = 1
@@ -42,46 +37,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 repo = 'zchee/deoplete-jedi'
 on_i = 1
 on_ft = 'python'
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-hook_post_update = '''
-    if executable('make')
-        let cmd = 'make'
-    endif
-    let g:dein#plugin.build = cmd
-'''
-hook_post_source = '''
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-'''
-on_i = 1
-on_ft = 'go'
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-
-[[plugins]]
-repo = 'justmao945/vim-clang'
-on_ft = ['cpp', 'c']
-on_i = 1
-hook_post_source = '''
-let g:clang_auto = 0
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
-'''
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_i = 1
-on_ft = ['c', 'cpp', 'cmake']
-depends = ['deoplete.nvim']
-hook_post_source = '''
-    let g:neoinclude#paths = {
-        \ 'cpp': '/usr/include/c++/6.2.1', 
-        \ }
-'''
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -118,40 +73,6 @@ on_ft = 'javascript'
 repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
 on_i = 1
-
-[[plugins]]
-repo = 'eagletmt/ghcmod-vim'
-on_ft = 'haskell'
-
-[[plugins]]
-repo = 'eagletmt/neco-ghc'
-on_ft = 'haskell'
-on_i = 1
-hook_source = '''
-" Disable haskell-vim omnifunc
-let g:haskellmode_completion_ghc = 0
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-'''
-
-[[plugins]]
-repo = 'neovimhaskell/haskell-vim'
-on_ft = 'haskell'
-on_i = 1
-hook_source = '''
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_indent_if = 3
-let g:haskell_indent_case = 2
-let g:haskell_indent_let = 4
-let g:haskell_indent_where = 6
-let g:haskell_indent_do = 3
-let g:haskell_indent_in = 1
-let g:haskell_indent_guard = 2
-'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
